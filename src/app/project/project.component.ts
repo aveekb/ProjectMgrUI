@@ -101,23 +101,23 @@ export class ProjectComponent implements OnInit {
 
   addProject() {
     if (!this.projectToAdd.projectName || this.projectToAdd.projectName === '') {
-      this.eventService.showWarning('Please add project name ');
+      this.eventService.showWarning('Add project name ');
       return;
     }
     if (!this.projectToAdd.priority) {
-      this.eventService.showWarning('Please set priority ');
+      this.eventService.showWarning('Set priority ');
       return;
     }
     if (this.startEndDateEnable && (!this.projectToAdd.projectStartDate || this.projectToAdd.projectStartDate.toString() === '')) {
-      this.eventService.showWarning('Please select start date ');
+      this.eventService.showWarning('Select start date ');
       return;
     }
     if (this.startEndDateEnable && (!this.projectToAdd.projectEndDate || this.projectToAdd.projectEndDate.toString() === '')) {
-      this.eventService.showWarning('Please select end date ');
+      this.eventService.showWarning('Select end date ');
       return;
     }
     if (!this.projectToAdd.user.userId || this.projectToAdd.user.userId.toString() === '') {
-      this.eventService.showWarning('Please select userId ');
+      this.eventService.showWarning('Select user ');
       return;
     }
     if (!this.startEndDateEnable) {
@@ -127,7 +127,7 @@ export class ProjectComponent implements OnInit {
     if (this.buttonName === 'Add') {
       this.eventService.showLoading(true);
       this.projectService.addProject(this.projectToAdd).subscribe((data) => {
-        this.eventService.showSuccess('Saved successfully');
+        this.eventService.showSuccess('Project saved successfully');
         this.resetProject();
         this.ngOnInit();
         this.eventService.showLoading(false);
@@ -140,7 +140,7 @@ export class ProjectComponent implements OnInit {
     if (this.buttonName === 'Update') {
       this.eventService.showLoading(true);
       this.projectService.updateProject(this.projectToAdd).subscribe((data) => {
-        this.eventService.showSuccess('Update successfully')
+        this.eventService.showSuccess('Project updated successfully')
         this.ngOnInit();
         this.eventService.showLoading(false);
       },

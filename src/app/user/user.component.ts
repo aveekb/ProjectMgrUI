@@ -37,21 +37,21 @@ export class UserComponent implements OnInit {
 
   addUser() {
     if (!this.userToAdd.firstName || this.userToAdd.firstName === '') {
-      this.eventService.showWarning('Please add first Name ');
+      this.eventService.showWarning('Add first Name ');
       return;
     }
     if (!this.userToAdd.lastName || this.userToAdd.lastName === '') {
-      this.eventService.showWarning('Please add last Name ');
+      this.eventService.showWarning('Add last Name ');
       return;
     }
     if (!this.userToAdd.employeeId || this.userToAdd.employeeId === '') {
-      this.eventService.showWarning('Please enter employee id');
+      this.eventService.showWarning('Enter employee id');
       return;
     }
     if (this.buttonName === 'Add') {
       this.eventService.showLoading(true);
       this.userService.addUser(this.userToAdd).subscribe((data) => {
-        this.eventService.showSuccess('Saved successfully')
+        this.eventService.showSuccess('User saved successfully')
         this.ngOnInit();
         this.eventService.showLoading(false);
       },
@@ -63,7 +63,7 @@ export class UserComponent implements OnInit {
     if (this.buttonName === 'Update') {
       this.eventService.showLoading(true);
       this.userService.updateUser(this.userToAdd).subscribe((data) => {
-        this.eventService.showSuccess('Update successfully')
+        this.eventService.showSuccess('User updated successfully')
         this.ngOnInit();
         this.eventService.showLoading(false);
       },

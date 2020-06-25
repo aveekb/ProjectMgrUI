@@ -83,27 +83,27 @@ export class AddTaskComponent implements OnInit {
 
   addTask() {
     if (!this.taskToAdd.project_ID && this.buttonName=='Add') {
-      this.eventService.showWarning('Please select project ');
+      this.eventService.showWarning('Select a project ');
       return;
     }
     if (!this.taskToAdd.task_Name || this.taskToAdd.task_Name === '') {
-      this.eventService.showWarning('Please add task name ');
+      this.eventService.showWarning('Add task name ');
       return;
     }
     if (!this.hasParentTask && (!this.taskToAdd.priority || this.taskToAdd.priority === 0)) {
-      this.eventService.showWarning('Please set priority ');
+      this.eventService.showWarning('Set priority ');
       return;
     }
     if (!this.hasParentTask && (!this.taskToAdd.start_Date || this.taskToAdd.start_Date.toString() === '')) {
-      this.eventService.showWarning('Please select start date ');
+      this.eventService.showWarning('Select start date ');
       return;
     }
     if (!this.hasParentTask && (!this.taskToAdd.end_Date || this.taskToAdd.end_Date.toString() === '')) {
-      this.eventService.showWarning('Please select end date ');
+      this.eventService.showWarning('Select end date ');
       return;
     }
     if (!this.hasParentTask && (!this.taskToAdd.user.userId || this.taskToAdd.user.userId.toString() === '')) {
-      this.eventService.showWarning('Please select userId ');
+      this.eventService.showWarning('Select userId ');
       return;
     }
     if (this.hasParentTask) {
@@ -162,7 +162,7 @@ export class AddTaskComponent implements OnInit {
             this.eventService.showLoading(false);
           });
       } else {
-        this.eventService.showWarning('parent task only needs task name and project');
+        this.eventService.showWarning('Parent task needs task name and project');
       }
     }
     if (type === 3) {
@@ -178,7 +178,7 @@ export class AddTaskComponent implements OnInit {
             this.eventService.showLoading(false);
           });
       } else {
-        this.eventService.showWarning('parent task only needs task name and project');
+        this.eventService.showWarning('Parent task needs task name and project');
       }
     }
   }
